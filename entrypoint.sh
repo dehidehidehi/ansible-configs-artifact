@@ -60,8 +60,8 @@ gitStatus=$?
 if [ $gitStatus -eq 2 ]; then echo "Issue pulling ansible configuration repository." && return 2; fi
 
 # Execute Ansible
-inventory="inventory.yml"
-playbook="main.yml"
+inventory="hosts"
+playbook="local.yml"
 
 prevDir=$(pwd)
 cd "$repoDir"
