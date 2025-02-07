@@ -55,7 +55,7 @@ ansible-galaxy collection install community.general 1> /dev/null
 
 # Install or pull Git repo 
 mkdir -p "$repoDir" || true
-git clone "$repoUrl" "$repoDir" || git -C "$repoDir" pull 
+git clone "$repoUrl" "$repoDir" || git -C "$repoDir" pull || git -C "$repoDir" restore . && git -C "$repoDir" restore --staged .
 gitStatus=$?
 if [ $gitStatus -eq 2 ]; then echo "Issue pulling ansible configuration repository." && return 2; fi
 
